@@ -2,5 +2,6 @@
 
 members = [
   "guess-number",
-  "functions"
+  "functions",
+  "array-and-tuple"
 ]
