@@ -1,4 +1,4 @@
-<div align="center"><img src="assets/rust_mascot.png" width="300"/></div>
+<div align="center"><img src="assets/rust_mascot.png" width="500"/></div>
 
 <br /><br />
 
