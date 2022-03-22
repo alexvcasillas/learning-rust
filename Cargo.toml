@@ -3,5 +3,6 @@
 members = [
   "guess-number",
   "functions",
-  "array-and-tuple"
+  "array-and-tuple",
+  "vect-and-struct"
 ]
