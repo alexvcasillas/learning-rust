@@ -1,5 +1,5 @@
 use colored::Colorize;
-use std::io;
+use std::io::{self, Write};
 
 const PAIR_LIMIT: usize = 20;
 
@@ -9,7 +9,13 @@ fn main() {
     let list_length: usize = loop {
         let mut desired_length = String::new();
 
-        println!("How long do you want the list to be? (maximum 20 pairs)");
+        print!("How long do you want the list to be? (maximum 20 pairs) ");
+
+        /*
+            Note that stdout is frequently line-buffered by default so it may be necessary
+            to use io::stdout().flush() to ensure the output is emitted immediately.
+        */
+        io::stdout().flush().unwrap();
 
         io::stdin()
             .read_line(&mut desired_length)
@@ -82,7 +88,9 @@ fn fill_default_tuples() -> [(String, String); PAIR_LIMIT] {
 }
 
 fn ask_for_tuple() -> (String, String) {
-    println!("Please enter the {} for this pair: ", "key".green());
+    print!("Please enter the {} for this pair: ", "key".green());
+
+    io::stdout().flush().unwrap();
 
     let mut key = String::new();
     io::stdin()
@@ -91,7 +99,10 @@ fn ask_for_tuple() -> (String, String) {
 
     let mut value = String::new();
 
-    println!("Please enter the {} for this pair: ", "value".green());
+    print!("Please enter the {} for this pair: ", "value".green());
+
+    io::stdout().flush().unwrap();
+
     io::stdin()
         .read_line(&mut value)
         .expect("Failed to read line");
